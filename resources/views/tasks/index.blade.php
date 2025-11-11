@@ -3,13 +3,13 @@
 @section('content')
 <div class="row">
     <div class="col">
-        <h5>Pour créer une nouvelle tâche cliquez ci-dessous</h5>
+        <h5 class="fs-4 mb-3">Pour créer une nouvelle tâche cliquez ci-dessous</h5>
         <a href="{{ route('tasks.create') }}" class="btn btn-primary shadow">
             Nouvelle tâche
         </a>
     </div>
     <div class="col">
-        <h2>Mes tâches</h2>
+        <h2 class="fs-3 mb-3">Mes tâches</h2>
 
         @if($tasks->count() > 0)
             @foreach($tasks as $task)

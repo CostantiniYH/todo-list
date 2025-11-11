@@ -1,8 +1,7 @@
 @extends('index')
 
 @section('content')
-<h2>Toutes mes tâches</h2>
-
+<h2 class="fs-3 mb-5">Toutes mes tâches</h2>
 @if($tasks->count() > 0)
     @foreach($tasks as $task)
         <div class="task {{ $task->completed ? 'completed' : '' }} shadow p-3 mb-5 bg-body rounded-3">

@@ -8,13 +8,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return view('index');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/index', [TaskController::class, 'index'])
+    ->name('index');
+
+Route::get('/dashboard', [TaskController::class, 'tachesByUser'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,6 +30,9 @@ Route::get('/tasks/index', [TaskController::class, 'index'])
 Route::get('/tasks/create', [TaskController::class, 'create'])
     ->name('tasks.create');
 
+Route::get('/tasks/taches', [TaskController::class, 'taches'])
+    ->name('tasks.taches');
+    
 Route::post('/tasks', [TaskController::class, 'store'])
     ->name('tasks.store');
 
@@ -37,7 +42,5 @@ Route::patch('/tasks/{task}/complete', [TaskController::class, 'complete'])
 Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])
     ->name('tasks.destroy');
 
-Route::get('/tasks/taches', [TaskController::class, 'taches'])
-    ->name('tasks.taches');
 
 require __DIR__.'/auth.php';

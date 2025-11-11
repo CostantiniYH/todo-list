@@ -25,6 +25,12 @@ class TaskController extends Controller
         return view('tasks.create');
     }
 
+    public function tachesByUser()
+    {
+         $tasks = Task::orderBy('created_at', 'desc')->get();
+        return view('dashboard', compact('tasks'));
+    }
+    
     // 🟢 Enregistrer une nouvelle tâche
     public function store(Request $request)
     {

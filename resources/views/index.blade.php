@@ -7,18 +7,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body class="">
-    @include('layouts.navbar')
-    <div class="container mt-4">
-        <h1 class="text-center mb-5">Gestionnaire de tâches</h1>
-
-        @if(session('success'))
+    <x-app-layout>
+        <div class="container p-5">
+            <h1 class="text-center mb-5 fs-2">Gestionnaire de tâches</h1>
+            
+            @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
-        @endif
-
-        @yield('content')
-    </div>
-   @include('layouts.footer')
+            @endif
+            
+            @yield('content')
+        </div>
+    </x-app-layout>
 </body>
 </html>
