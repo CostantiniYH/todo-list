@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('index')
 
 @section('content')
 <a href="{{ route('tasks.index') }}" class="btn btn-primary">

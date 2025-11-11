@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\Schema;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Appliquer une longueur par défaut aux chaînes de caractères pour éviter les problèmes avec les anciennes versions de MySQL
+        Schema::defaultStringLength(191);
     }
 }

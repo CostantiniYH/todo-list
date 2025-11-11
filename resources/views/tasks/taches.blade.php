@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('index')
 
 @section('content')
 <h2>Toutes mes tâches</h2>
